@@ -12,6 +12,7 @@
 		191B5BC11FE69D3C009D2A9B /* CharacterImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BC01FE69D3C009D2A9B /* CharacterImageTableViewCell.swift */; };
 		191B5BC31FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BC21FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift */; };
 		191B5BC51FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BC41FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift */; };
+		192FEB551FE6DD9100E0FA6F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FEB541FE6DD9100E0FA6F /* Character.swift */; };
 		195DA20C1FE572890086D672 /* CharacterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195DA20B1FE572890086D672 /* CharacterListTableViewController.swift */; };
 		195DA20E1FE573A80086D672 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195DA20D1FE573A80086D672 /* CharactersTableViewCell.swift */; };
 		197FC8611FE3277300C259A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197FC8601FE3277300C259A9 /* Constants.swift */; };
@@ -20,12 +21,10 @@
 		19A83B821FE3045D00740CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A83B801FE3045D00740CC7 /* Main.storyboard */; };
 		19A83B841FE3045D00740CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A83B831FE3045D00740CC7 /* Assets.xcassets */; };
 		19A83B871FE3045D00740CC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A83B851FE3045D00740CC7 /* LaunchScreen.storyboard */; };
-		19A83B961FE306D600740CC7 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A83B951FE306D600740CC7 /* Character.swift */; };
 		19A9E7721FE58B9A001A1C3A /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9E7711FE58B9A001A1C3A /* Thumbnail.swift */; };
 		19A9E7741FE59509001A1C3A /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9E7731FE59509001A1C3A /* LogoAnimationViewController.swift */; };
 		19A9E7761FE5B81F001A1C3A /* LoadMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9E7751FE5B81F001A1C3A /* LoadMoreTableViewController.swift */; };
 		19F947861FE463F000177613 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F947851FE463F000177613 /* String+MD5.swift */; };
-		2291F7C3483422BC0196DC8F /* Pods_marvelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D2C741ED3311433D038551 /* Pods_marvelApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +46,7 @@
 		191B5BC01FE69D3C009D2A9B /* CharacterImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageTableViewCell.swift; sourceTree = "<group>"; };
 		191B5BC21FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
 		191B5BC41FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableViewCell.swift; sourceTree = "<group>"; };
+		192FEB541FE6DD9100E0FA6F /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		195DA20B1FE572890086D672 /* CharacterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewController.swift; sourceTree = "<group>"; };
 		195DA20D1FE573A80086D672 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		197FC8601FE3277300C259A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -57,13 +57,11 @@
 		19A83B831FE3045D00740CC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19A83B861FE3045D00740CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19A83B881FE3045D00740CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19A83B951FE306D600740CC7 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = MarvelApp/Controllers/Character.swift; sourceTree = SOURCE_ROOT; };
 		19A9E7711FE58B9A001A1C3A /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		19A9E7731FE59509001A1C3A /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
 		19A9E7751FE5B81F001A1C3A /* LoadMoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTableViewController.swift; sourceTree = "<group>"; };
 		19F947801FE45C2200177613 /* marvelApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "marvelApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		19F947851FE463F000177613 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
-		38D2C741ED3311433D038551 /* Pods_marvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743D70B16EB6E32FEAE72AFF /* Pods-marvelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvelApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-marvelApp/Pods-marvelApp.release.xcconfig"; sourceTree = "<group>"; };
 		91CB6DAF3AC0BDC5097CCFF3 /* Pods-marvelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvelApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-marvelApp/Pods-marvelApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2291F7C3483422BC0196DC8F /* Pods_marvelApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,18 +85,9 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		1995F9DE1FE332A9006DB4DE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				38D2C741ED3311433D038551 /* Pods_marvelApp.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		19A83B701FE3045D00740CC7 = {
 			isa = PBXGroup;
 			children = (
-				1995F9DE1FE332A9006DB4DE /* Frameworks */,
 				19A83B7B1FE3045D00740CC7 /* MarvelApp */,
 				19A83B7A1FE3045D00740CC7 /* Products */,
 				B00105105717450ACF90FAE4 /* Pods */,
@@ -158,7 +146,7 @@
 		19A83B911FE306AF00740CC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				19A83B951FE306D600740CC7 /* Character.swift */,
+				192FEB541FE6DD9100E0FA6F /* Character.swift */,
 				19A9E7711FE58B9A001A1C3A /* Thumbnail.swift */,
 			);
 			name = Models;
@@ -330,7 +318,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				191B5BC31FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift in Sources */,
-				19A83B961FE306D600740CC7 /* Character.swift in Sources */,
 				195DA20E1FE573A80086D672 /* CharactersTableViewCell.swift in Sources */,
 				195DA20C1FE572890086D672 /* CharacterListTableViewController.swift in Sources */,
 				19A83B7D1FE3045D00740CC7 /* AppDelegate.swift in Sources */,
@@ -341,6 +328,7 @@
 				191B5BC11FE69D3C009D2A9B /* CharacterImageTableViewCell.swift in Sources */,
 				19A9E7741FE59509001A1C3A /* LogoAnimationViewController.swift in Sources */,
 				19A9E7721FE58B9A001A1C3A /* Thumbnail.swift in Sources */,
+				192FEB551FE6DD9100E0FA6F /* Character.swift in Sources */,
 				191B5BBA1FE5D88C009D2A9B /* LoadFooterView.swift in Sources */,
 				197FC8641FE32EAB00C259A9 /* API.swift in Sources */,
 			);
