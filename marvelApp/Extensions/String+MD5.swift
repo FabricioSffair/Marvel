@@ -5,6 +5,7 @@
 //  Created by Fabrício Sperotto Sffair on 2017-12-15.
 //  Copyright © 2017 Fabrício Sperotto Sffair. All rights reserved.
 //
+//  Extensão da String para poder transformar TS + APIKEY + PRIVATEKEY em uma hash md5
 
 import Foundation
 
