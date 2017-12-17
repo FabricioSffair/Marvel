@@ -13,6 +13,7 @@ class CharactersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var characterView: UIImageView!
     @IBOutlet weak var characterLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +28,13 @@ class CharactersTableViewCell: UITableViewCell {
     
     func configureCell(url: URL?, name: String) {
         if let urlImage = url {
-            self.characterView?.kf.setImage(with: urlImage)
+            let placeholder = #imageLiteral(resourceName: "marvelTitleLogo")
+            self.activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            self.characterView.kf.setImage(with: urlImage, placeholder: placeholder, options: [.transition(.fade(0.4))], progressBlock: nil, completionHandler: { (img, error, cachetype, url) in
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+            })
         }
         self.characterLabel?.text = name
         

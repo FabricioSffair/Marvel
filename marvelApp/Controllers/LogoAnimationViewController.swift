@@ -25,7 +25,7 @@ class LogoAnimationViewController : UIViewController {
         super.viewDidLoad()
         self.beginAnimation()
         
-        API.createRequest { (results, error) in
+        API.GETCharacterList(offset: characters.count, limit: 16, completionHandler: { (results, error) in
             self.animationCompleted = true
             
             if let chars = results {
@@ -37,7 +37,7 @@ class LogoAnimationViewController : UIViewController {
             if self.animationCompleted {
                 self.completeAnimation()
             }
-        }
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

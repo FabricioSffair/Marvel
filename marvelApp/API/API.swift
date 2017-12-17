@@ -12,28 +12,43 @@ import UIKit
 
 class API {
     
-    static func GET() -> DataRequest {
+    static func GETCharacterList(offset: Int, limit: Int, completionHandler: @escaping ([Character]?, Error?) -> Void) {
         
-        let url = APISettings.url + EndPoints.characterList
+        guard let urlToCall = createUrlWithParam(offset: offset, limit: limit, endPoint: EndPoints.characterList) else {
+            print("Error: Cannot create URL")
+            return
+        }
+        self.createRequest(url: urlToCall) { (data, error) in
+            
+            if let responseData = data {
+                let decoder = JSONDecoder()
+                do {
+                    let todos = try decoder.decode(Root.self, from: responseData)
+                    completionHandler(todos.data.results, nil)
+                } catch {
+                    print("error trying to convert data to JSON")
+                    print(error)
+                    completionHandler(nil, error)
+                }
+            } else if let erro = error {
+                completionHandler(nil, erro)
+            }
+        }
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
+    }
+    
+    static func createUrlWithParam(offset: Int, limit: Int, endPoint: String) -> URL? {
         
+        let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
+        let hash = "\(timeStamp)\(APISettings.privateKey)\(APISettings.publicKey)"
         
-        var parameters = createParamsForOffset(offset: 0, andLimit: 20) ?? Alamofire.Parameters()
-        
-        parameters.updateValue("name", forKey: "orderBy")
-//        parameters.updateValue(timeStamp, forKey: "ts")
-        parameters.updateValue(APISettings.publicKey, forKey: "apikey")
-//        parameters.updateValue(hash.MD5, forKey: "hash")
-        
-        return Alamofire.request(url, method: .get, parameters: parameters)
-            .response {
-                response in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
+        return URL(string: APISettings.url + endPoint + "?offset=\(offset)&limit=\(limit)&apikey=\(APISettings.publicKey)&hash=\(hash.MD5)&ts=\(timeStamp)")
     }
     
     static private func createParamsForOffset(offset: Int?, andLimit limit: Int?) -> Alamofire.Parameters? {
+        
         if offset != nil || limit != nil {
             var params = Alamofire.Parameters()
             if let offset = offset {
@@ -47,19 +62,10 @@ class API {
         return nil
     }
     
-    static func createRequest(completionHandler: @escaping ([Character]?, Error?) -> Void) {
-        let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
-        let hash = "\(timeStamp)\(APISettings.privateKey)\(APISettings.publicKey)"
-        let urlString = APISettings.url + "/characters" + "?apikey=\(APISettings.publicKey)&hash=\(hash.MD5)&ts=\(timeStamp)"
-        guard let url = URL(string: urlString) else {
-            print("Error: cannot create URL")
-//            completionHandler(nil, error)
-            return
-        }
+    static func createRequest(url: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
+        
         let urlRequest = URLRequest(url: url)
-        
         let session = URLSession.shared
-        
         let task = session.dataTask(with: urlRequest) {
             (data, response, error) in
             guard let responseData = data else {
@@ -72,26 +78,9 @@ class API {
                 return
             }
             
-            let decoder = JSONDecoder()
-            do {
-                let todos = try decoder.decode(Root.self, from: responseData)
-                completionHandler(todos.data.results, nil)
-            } catch {
-                print("error trying to convert data to JSON")
-                print(error)
-                completionHandler(nil, error)
-            }
+            completionHandler(responseData, nil)
         }
         task.resume()
-    }
-    
-    private func getHashAndTimeStamp() -> [String: Any] {
-        let timeStamp = Int(Date().timeIntervalSince1970 * 1000)
-        let hash = "\(timeStamp)\(APISettings.privateKey)\(APISettings.publicKey)"
-        return [
-            "hash":hash,
-            "ts": timeStamp
-            ]
     }
     
 }
