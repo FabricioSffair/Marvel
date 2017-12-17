@@ -27,7 +27,17 @@ class CharacterListTableViewController: LoadMoreTableViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         self.navigationItem.titleView = imageView
+        addRefreshControl()
         
+        
+    }
+    
+    private func addRefreshControl() {
+        let rc = UIRefreshControl()
+        rc.removeTarget(self, action: nil, for: .allEvents)
+        rc.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        rc.tintColor = UIColor.white
+        tableView.refreshControl = rc
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,6 +49,12 @@ class CharacterListTableViewController: LoadMoreTableViewController {
         }
     }
 
+    
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        loadMore(true, with: sender)
+    }
+
+    
     //MARK: - Table View DataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
