@@ -4,14 +4,21 @@
 //
 //  Created by Fabrício Sperotto Sffair on 2017-12-14.
 //  Copyright © 2017 Fabrício Sperotto Sffair. All rights reserved.
-// url: String, andParams params: [String: Any]?=nil, withLimit limit: Int? = nil, andOffset offset: Int? = nil
+//
+//  API Com método para buscar a lista de personagens e a criação de requisição.
+//  Aqui foi feito uma API simples e a busca da lista pois não havia necessidade
+//  de muita complexidade para o teste, podendo ter feito alguma estrutura
+//  mais escalável caso fosse necessário.
+//
 
 import Foundation
-import Alamofire
 import UIKit
+
 
 class API {
     
+    // Método onde busca a lista de personagens e faz o Parsing para retornar em um bloco
+    // a lista já em sua classe.
     static func GETCharacterList(offset: Int, limit: Int, completionHandler: @escaping ([Character]?, Error?) -> Void) {
         
         guard let urlToCall = createUrlWithParam(offset: offset, limit: limit, endPoint: EndPoints.characterList) else {
@@ -19,12 +26,12 @@ class API {
             return
         }
         self.createRequest(url: urlToCall) { (data, error) in
-            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let responseData = data {
                 let decoder = JSONDecoder()
                 do {
-                    let todos = try decoder.decode(Root.self, from: responseData)
-                    completionHandler(todos.data.results, nil)
+                    let rootJson = try decoder.decode(Root.self, from: responseData)
+                    completionHandler(rootJson.data.results, nil)
                 } catch {
                     print("error trying to convert data to JSON")
                     print(error)
@@ -47,20 +54,6 @@ class API {
         return URL(string: APISettings.url + endPoint + "?offset=\(offset)&limit=\(limit)&apikey=\(APISettings.publicKey)&hash=\(hash.MD5)&ts=\(timeStamp)")
     }
     
-    static private func createParamsForOffset(offset: Int?, andLimit limit: Int?) -> Alamofire.Parameters? {
-        
-        if offset != nil || limit != nil {
-            var params = Alamofire.Parameters()
-            if let offset = offset {
-                params["offset"] = offset
-            }
-            if let limit = limit {
-                params["limit"] = limit
-            }
-            return params
-        }
-        return nil
-    }
     
     static func createRequest(url: URL, completionHandler: @escaping (Data?, Error?) -> Void) {
         

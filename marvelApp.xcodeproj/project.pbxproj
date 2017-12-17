@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		191B5BBA1FE5D88C009D2A9B /* LoadFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BB81FE5D88C009D2A9B /* LoadFooterView.swift */; };
 		191B5BBB1FE5D88C009D2A9B /* LoadFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191B5BB91FE5D88C009D2A9B /* LoadFooterView.xib */; };
-		191B5BBD1FE5E6BE009D2A9B /* DetailedCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BBC1FE5E6BE009D2A9B /* DetailedCharacterViewController.swift */; };
+		191B5BC11FE69D3C009D2A9B /* CharacterImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BC01FE69D3C009D2A9B /* CharacterImageTableViewCell.swift */; };
+		191B5BC31FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BC21FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift */; };
+		191B5BC51FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191B5BC41FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift */; };
 		195DA20C1FE572890086D672 /* CharacterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195DA20B1FE572890086D672 /* CharacterListTableViewController.swift */; };
 		195DA20E1FE573A80086D672 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195DA20D1FE573A80086D672 /* CharactersTableViewCell.swift */; };
 		197FC8611FE3277300C259A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197FC8601FE3277300C259A9 /* Constants.swift */; };
@@ -42,7 +44,9 @@
 /* Begin PBXFileReference section */
 		191B5BB81FE5D88C009D2A9B /* LoadFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadFooterView.swift; sourceTree = "<group>"; };
 		191B5BB91FE5D88C009D2A9B /* LoadFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadFooterView.xib; sourceTree = "<group>"; };
-		191B5BBC1FE5E6BE009D2A9B /* DetailedCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterViewController.swift; sourceTree = "<group>"; };
+		191B5BC01FE69D3C009D2A9B /* CharacterImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageTableViewCell.swift; sourceTree = "<group>"; };
+		191B5BC21FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
+		191B5BC41FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableViewCell.swift; sourceTree = "<group>"; };
 		195DA20B1FE572890086D672 /* CharacterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewController.swift; sourceTree = "<group>"; };
 		195DA20D1FE573A80086D672 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		197FC8601FE3277300C259A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -133,10 +137,10 @@
 		19A83B8E1FE306AF00740CC7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				191B5BC21FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift */,
 				195DA20B1FE572890086D672 /* CharacterListTableViewController.swift */,
 				19A9E7731FE59509001A1C3A /* LogoAnimationViewController.swift */,
 				19A9E7751FE5B81F001A1C3A /* LoadMoreTableViewController.swift */,
-				191B5BBC1FE5E6BE009D2A9B /* DetailedCharacterViewController.swift */,
 			);
 			name = Controllers;
 			path = MarvelApp/Controllers;
@@ -176,6 +180,8 @@
 				191B5BB81FE5D88C009D2A9B /* LoadFooterView.swift */,
 				191B5BB91FE5D88C009D2A9B /* LoadFooterView.xib */,
 				195DA20D1FE573A80086D672 /* CharactersTableViewCell.swift */,
+				191B5BC01FE69D3C009D2A9B /* CharacterImageTableViewCell.swift */,
+				191B5BC41FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift */,
 			);
 			name = Views;
 			path = MarvelApp/Views;
@@ -272,19 +278,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-marvelApp/Pods-marvelApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -331,14 +329,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191B5BC31FE69DDE009D2A9B /* CharacterDetailsTableViewController.swift in Sources */,
 				19A83B961FE306D600740CC7 /* Character.swift in Sources */,
 				195DA20E1FE573A80086D672 /* CharactersTableViewCell.swift in Sources */,
 				195DA20C1FE572890086D672 /* CharacterListTableViewController.swift in Sources */,
 				19A83B7D1FE3045D00740CC7 /* AppDelegate.swift in Sources */,
-				191B5BBD1FE5E6BE009D2A9B /* DetailedCharacterViewController.swift in Sources */,
 				19F947861FE463F000177613 /* String+MD5.swift in Sources */,
 				197FC8611FE3277300C259A9 /* Constants.swift in Sources */,
 				19A9E7761FE5B81F001A1C3A /* LoadMoreTableViewController.swift in Sources */,
+				191B5BC51FE6A2A6009D2A9B /* CharacterDetailTableViewCell.swift in Sources */,
+				191B5BC11FE69D3C009D2A9B /* CharacterImageTableViewCell.swift in Sources */,
 				19A9E7741FE59509001A1C3A /* LogoAnimationViewController.swift in Sources */,
 				19A9E7721FE58B9A001A1C3A /* Thumbnail.swift in Sources */,
 				191B5BBA1FE5D88C009D2A9B /* LoadFooterView.swift in Sources */,

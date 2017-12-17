@@ -4,11 +4,6 @@
 target 'marvelApp' do
   use_frameworks!
 
-  pod 'AlamofireObjectMapper', '~> 5.0'
-  pod 'Alamofire', '~> 4.5'
-
-  pod 'Sync'
-
   pod 'Kingfisher'
 
 end

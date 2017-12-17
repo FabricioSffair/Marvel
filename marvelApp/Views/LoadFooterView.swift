@@ -5,6 +5,7 @@
 //  Created by Fabrício Sperotto Sffair on 2017-12-16.
 //  Copyright © 2017 Fabrício Sperotto Sffair. All rights reserved.
 //
+//  View de carregando ou de não há itens, usado na lista de personagens
 
 import UIKit
 

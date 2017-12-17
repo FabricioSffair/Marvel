@@ -5,22 +5,24 @@
 //  Created by Fabrício Sperotto Sffair on 2017-12-16.
 //  Copyright © 2017 Fabrício Sperotto Sffair. All rights reserved.
 //
+//  View Controller que exibe a lista de personagens.
+//
 
 import UIKit
 import Kingfisher
-import Sync
 
 class CharacterListTableViewController: LoadMoreTableViewController {
 
+    //MARK: - Variables and structs
     var characters : [Character]?
     private struct Segues {
         static let CharDetail = "CharacterDetailSegue"
     }
     
+    //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        // Seta a imagem do logo da Marvel na navigationBar
         let imageView = UIImageView(image:#imageLiteral(resourceName: "marvelTitleLogo"))
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -28,22 +30,16 @@ class CharacterListTableViewController: LoadMoreTableViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.isTranslucent = false
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Prepare for segue para enviar as infos do personagem
         if segue.identifier == Segues.CharDetail {
-            if let detailedCharacterViewController = segue.destination as? DetailedCharacterViewController, let char = sender as? Character {
-                detailedCharacterViewController.character = char
+            if let detailedCharacterViewController = segue.destination as? CharacterDetailsTableViewController, let char = sender as? Character {
+                detailedCharacterViewController.characater = char
             }
         }
     }
 
+    //MARK: - Table View DataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
         
@@ -90,6 +86,11 @@ class CharacterListTableViewController: LoadMoreTableViewController {
 }
 
 
+// Informaões necessárias para a LoadMoreViewController
+// onde é necessário os records (itens a exibir)
+// o limit para chamada de WS, onde está atualmente setado para 16
+// um titulo para quando não achar resultados
+// e o méthodo para buscar dados do WS
 extension CharacterListTableViewController {
     override var records: [Any] {
         get {

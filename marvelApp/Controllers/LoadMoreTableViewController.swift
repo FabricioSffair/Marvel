@@ -5,6 +5,8 @@
 //  Created by Fabrício Sperotto Sffair on 2017-12-16.
 //  Copyright © 2017 Fabrício Sperotto Sffair. All rights reserved.
 //
+//  Classe de TableViewController, onde facilita a paginação,
+//  exibição de loading, exibição da lista.
 
 import Foundation
 import UIKit
@@ -65,19 +67,11 @@ class LoadMoreTableViewController: UITableViewController {
         }
     }
     
-    var repetidos = 0 {
-        didSet {
-            #if DEBUG
-                debugPrint("LoadMoreTableViewController.repetidos = \(repetidos)")
-            #endif
-        }
-    }
-    
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadMore(true, with: nil)
+        self.loadMore(false, with: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,14 +133,9 @@ class LoadMoreTableViewController: UITableViewController {
         if self.loadingMore == false {
             self.loadingMore = true
             var offset = 0
-            
-            if clear {
-                repetidos = 0
-            } else {
+            if !clear {
                 offset = self.records.count
             }
-            
-            offset += repetidos
             
             self.fetchDataFromWS(withOffset: offset, andLimit: limit) {
                 newResults, error in
